@@ -1,0 +1,31 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-10-27T19:01:59-04:00",
+    "name": "Kavita",
+    "author": "everestcomet@proton.me",
+    "description": "Lightning fast with a slick design, Kavita is a rocket fueled self-hosted digital library which supports a vast array of file formats.",
+    "features": null,
+    "docker_images": {
+        "ghcr.io\/parkervcp\/yolks:debian": "ghcr.io\/parkervcp\/yolks:debian"
+    },
+    "file_denylist": [],
+    "startup": "cd Kavita && .\/Kavita",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"Kavita started successfully\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "apt update && apt install -y wget curl tar jq\r\n\r\nmkdir -p \/mnt\/server\r\ncd \/mnt\/server\r\n\r\nLATEST_RELEASE=$(curl -s https:\/\/api.github.com\/repos\/Kareadita\/Kavita\/releases\/latest | jq -r '.tag_name')\r\n\r\nwget https:\/\/github.com\/Kareadita\/Kavita\/releases\/download\/$LATEST_RELEASE\/kavita-linux-x64.tar.gz -O kavita-linux-x64.tar.gz\r\n\r\ntar -xzf kavita-linux-x64.tar.gz -C \/mnt\/server\r\nrm kavita-linux-x64.tar.gz\r\n\r\ncd Kavita\r\n\r\nchmod +x .\/Kavita\r\n\r\nchown -R container:container \/mnt\/server\r\n\r\nexit 0",
+            "container": "ghcr.io\/parkervcp\/installers:debian",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": []
+}

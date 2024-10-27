@@ -1,7 +1,7 @@
 
 # kavita-egg 
 
-This is a egg for the software Pterodactyl that creates a server running Kavita. It should handle any library size as long as you give it the right specs, i have my 165 series library running it fine right now.
+This is an egg for the Pterodactyl software that creates a server running Kavita. It should handle any library size, as long as you provide the correct sepcs. I currently have my 165 series library running on it fine.
 
 Check out https://www.kavitareader.com/
 
